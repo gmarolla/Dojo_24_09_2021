@@ -1,0 +1,23 @@
+name: Feature -> Unstable
+
+on:    
+  push:
+    branches:
+     /*_Feature_dev 
+
+jobs:
+  PoolRequest:    
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        
+        - name: Create Pull Request
+          id: PoolRequest
+          uses: peter-evans/create-pull-request@v4
+          with:
+            branch : Develop_FR_Unstable
+        
+        - uses: hmarr/auto-approve-action@v2
+          with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            pull-request-number: ${{ steps.PoolRequest.outputs.pull-request-number }}

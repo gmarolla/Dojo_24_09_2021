@@ -3,7 +3,7 @@ name: Feature -> Unstable
 on:    
   push:
     branches:
-     TEST_Feature_dev
+     '*_Feature_dev'
 
 jobs:
   PoolRequest:    

@@ -4,3 +4,5 @@ Test
 Introduce a conflit again
 
 Ok1
+
+Now I have a conflict

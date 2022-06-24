@@ -3,7 +3,7 @@ name: Feature -> Unstable
 on:    
   push:
     branches:
-     /*_Feature_dev 
+     TEST_Feature_dev
 
 jobs:
   PoolRequest:    
@@ -12,12 +12,18 @@ jobs:
         - uses: actions/checkout@v3
         
         - name: Create Pull Request
-          id: PoolRequest
-          uses: peter-evans/create-pull-request@v4
+          id: open-pr
+          uses: repo-sync/pull-request@v2
           with:
-            branch : Develop_FR_Unstable
+            destination_branch: "Develop_FR_Unstable"
+            github_token: ${{ secrets.GITHUB_TOKEN }}
         
-        - uses: hmarr/auto-approve-action@v2
+        - name: Echo Pr
+          run: echo ${{steps.open-pr.outputs.pr_number}}
+  
+        - name: Approve
+          uses: juliangruber/merge-pull-request-action@v1
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
-            pull-request-number: ${{ steps.PoolRequest.outputs.pull-request-number }}
+            number: ${{steps.open-pr.outputs.pr_number}}
+            

@@ -17,6 +17,7 @@ jobs:
           with:
             destination_branch: "Develop_FR_Unstable"
             github_token: ${{ secrets.GITHUB_TOKEN }}
+            pr_draft: true
             
 
         

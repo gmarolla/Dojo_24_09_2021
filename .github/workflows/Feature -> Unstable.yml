@@ -16,14 +16,14 @@ jobs:
           uses: repo-sync/pull-request@v2
           with:
             destination_branch: "Develop_FR_Unstable"
-            github-token: ${{ secrets.GITHUB_TOKEN }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
         
         - name: Echo Pr
           run: echo ${{steps.open-pr.outputs.pr_number}}
   
         - name: Approve
-          uses: hmarr/auto-approve-action@v2
+          uses: juliangruber/merge-pull-request-action@v1
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
-            pull-request-number: ${{steps.open-pr.outputs.pr_number}}
+            number: ${{steps.open-pr.outputs.pr_number}}
             

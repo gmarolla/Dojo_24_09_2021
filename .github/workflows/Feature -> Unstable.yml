@@ -16,8 +16,6 @@ jobs:
           uses: repo-sync/pull-request@v2
           with:
             destination_branch: "Develop_FR_Unstable"
-            pr_reviewer: "gmarolla"
-            pr_assignee: "gmarolla"
         
         - name: Echo Pr
           run: echo ${{steps.open-pr.outputs.pr_number}}

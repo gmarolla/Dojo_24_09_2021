@@ -17,4 +17,9 @@ jobs:
           with:
             destination_branch: "main"
             github_token: ${{ secrets.GITHUB_TOKEN }}
+            
+        - uses: hmarr/auto-approve-action@v2
+          with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            pull-request-number: ${{ steps.PoolRequest.outputs.pr_number}}
         

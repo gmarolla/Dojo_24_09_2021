@@ -12,7 +12,7 @@ jobs:
         - uses: actions/checkout@v3
         
         - name: Create Pull Request
-          id: Open-Pool
+          id: open-pr
           uses: repo-sync/pull-request@v2
           with:
             destination_branch: "Develop_FR_Unstable"
@@ -20,11 +20,11 @@ jobs:
             pr_reviewer: "gmarolla"
             pr_assignee: "gmarolla"
         
-        - name: Echo Version
-          run: echo ${{steps.Open-Pool.outputs.pr_number}}
+        - name: Echo Pr
+          run: echo ${{steps.open-pr.outputs.pr_number}}
   
         - name: Approve
           uses: hmarr/auto-approve-action@v2
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
-            pull-request-number: ${{ steps.Open-Pool.outputs.pr_number }}
+            pull-request-number: ${{steps.open-pr.outputs.pr_number}}

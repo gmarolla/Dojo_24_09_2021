@@ -20,10 +20,5 @@ jobs:
             pr_reviewer: "gmarolla"
             pr_assignee: "gmarolla"
         
-    
-        - name: Approve
-          uses: hmarr/auto-approve-action@v2
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            pull-request-number: ${{ github.PoolRequest.outputs.pullRequestNumber }}
+  
 

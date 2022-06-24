@@ -15,7 +15,7 @@ jobs:
           id: PoolRequest
           uses: repo-sync/pull-request@v2
           with:
-            destination_branch: "main"
+            destination_branch: "Develop_FR_Unstable"
             github_token: ${{ secrets.GITHUB_TOKEN }}
             
         - uses: hmarr/auto-approve-action@v2

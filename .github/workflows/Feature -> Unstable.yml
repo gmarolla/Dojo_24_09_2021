@@ -20,6 +20,8 @@ jobs:
             pr_reviewer: "gmarolla"
             pr_assignee: "gmarolla"
         
+        - name: Echo Version
+          run: echo ${{steps.PoolRequest.outputs.pr_number}}
   
         - name: Approve
           uses: hmarr/auto-approve-action@v2

@@ -16,6 +16,7 @@ jobs:
           uses: repo-sync/pull-request@v2
           with:
             destination_branch: "Develop_FR_Unstable"
+            github-token: ${{ secrets.GITHUB_TOKEN }}
         
         - name: Echo Pr
           run: echo ${{steps.open-pr.outputs.pr_number}}

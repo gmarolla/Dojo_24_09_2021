@@ -13,11 +13,8 @@ jobs:
         
         - name: Create Pull Request
           id: PoolRequest
-          uses: peter-evans/create-pull-request@v4
+          uses: repo-sync/pull-request@v2
           with:
-            branch : Develop_FR_Unstable
+            destination_branch: "main"
+            github_token: ${{ secrets.GITHUB_TOKEN }}
         
-        - uses: hmarr/auto-approve-action@v2
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            pull-request-number: ${{ steps.PoolRequest.outputs.pull-request-number }}
